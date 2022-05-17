@@ -92,7 +92,10 @@ module.exports = ({
     // new CleanWebpackPlugin(),
     // new LoadablePlugin(),
     // 该插件能够使得指定目录被忽略，从而使得打包变快，文件变小;下面忽略了包含’./locale/'该字段路径的文件目录,但是也使得我们使用的时候不能显示中文语言了，所以这个时候可以手动引入中文语言的目录
-    new webpack.IgnorePlugin(/\.\/locale/, /moment/),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /\.\/locale/,
+      contextRegExp: /moment/,
+    }),
     // 主要用于对打包好的js文件的最开始处添加版权声明
     new webpack.BannerPlugin(`pony ${pkg.version}`),
     // 将CSS提取到单独的文件中
@@ -108,26 +111,26 @@ module.exports = ({
     minimizer: devMode
       ? []
       : [
-          // 压缩js代码
-          // new UglifyJsPlugin({
-          //   cache: true, // 启用文件缓存并设置缓存目录的路径
-          //   parallel: true, // 使用多进程并行运行
-          //   sourceMap: true // set to true if you want JS source maps
-          // }),
-          // webpack v5 使用内置的TerserJSPlugin替代UglifyJsPlugin，因为UglifyJsPlugin不支持ES6
-          new TerserJSPlugin({
-            // cache: true, // 启用文件缓存并设置缓存目录的路径
-            parallel: true, // 使用多进程并行运行
-            // sourceMap: true // set to true if you want JS source maps
-          }),
-          // 用于优化或者压缩CSS资源
-          new OptimizeCSSAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'), // 用于优化\最小化 CSS 的 CSS 处理器，默认为 cssnano
-            cssProcessorOptions: { safe: true, discardComments: { removeAll: true } }, // 传递给 cssProcesso
-            canPrint: true // 布尔值，指示插件是否可以将消息打印到控制台，默认为 true
-          })
-        ],
+        // 压缩js代码
+        // new UglifyJsPlugin({
+        //   cache: true, // 启用文件缓存并设置缓存目录的路径
+        //   parallel: true, // 使用多进程并行运行
+        //   sourceMap: true // set to true if you want JS source maps
+        // }),
+        // webpack v5 使用内置的TerserJSPlugin替代UglifyJsPlugin，因为UglifyJsPlugin不支持ES6
+        new TerserJSPlugin({
+          // cache: true, // 启用文件缓存并设置缓存目录的路径
+          parallel: true, // 使用多进程并行运行
+          // sourceMap: true // set to true if you want JS source maps
+        }),
+        // 用于优化或者压缩CSS资源
+        new OptimizeCSSAssetsPlugin({
+          assetNameRegExp: /\.css$/g,
+          cssProcessor: require('cssnano'), // 用于优化\最小化 CSS 的 CSS 处理器，默认为 cssnano
+          cssProcessorOptions: { safe: true, discardComments: { removeAll: true } }, // 传递给 cssProcesso
+          canPrint: true // 布尔值，指示插件是否可以将消息打印到控制台，默认为 true
+        })
+      ],
     sideEffects: false
   }
 });

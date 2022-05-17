@@ -13,11 +13,29 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
+    "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "6.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "react": "^18.1.0",
+    "typescript": "^4.2.3",
     "webpack": "^5.72.1",
-    "cross-env": "^7.0.3"
+    "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
-    "@types/react": "^18.0.9"
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
+    "@loadable/webpack-plugin": "^5.14.2",
+    "@types/react": "^18.0.9",
+    "autoprefixer": "8.0.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "mini-css-extract-plugin": "^1.4.0",
+    "postcss-loader": "^5.2.0",
+    "sass-loader": "^11.0.1",
+    "ts-loader": "^8.1.0"
   }
 }
