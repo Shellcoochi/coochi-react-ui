@@ -3,14 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve",
     "build:dev": "cross-env NODE_ENV=development webpack",
     "build:prod": "cross-env NODE_ENV=production webpack",
-    "build": "npm run build:prod && npm run build:dev"
-  },
+    "clean": "rimraf dist && rimraf lib",
+    "build:tsc": "tsc -p tsconfig.build.json --target ES5 --outDir lib",
+    "build:es": "cpr src/styles lib/styles -o && cpr src/assets lib/assets -o",
+    "build": "npm run clean && npm run build:prod && npm run build:dev && npm run build:tsc && npm run build:es"
+   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "files": [
+    "dist/*",
+    "lib",
+    "index.js",
+    "package.json",
+    "README.md"
+  ],
   "dependencies": {
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
@@ -32,9 +47,14 @@
     "@types/react": "^18.0.9",
     "autoprefixer": "8.0.0",
     "babel-loader": "^8.2.2",
+    "cpr": "^3.0.1",
     "css-loader": "^5.2.0",
+    "docz": "^2.4.0",
+    "gatsby-plugin-sass": "^5.14.0",
+    "make-dir-cli": "^3.0.0",
     "mini-css-extract-plugin": "^1.4.0",
     "postcss-loader": "^5.2.0",
+    "rimraf": "^3.0.2",
     "sass-loader": "^11.0.1",
     "ts-loader": "^8.1.0"
   }
