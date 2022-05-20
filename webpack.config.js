@@ -18,8 +18,8 @@ module.exports = ({
   entry: path.resolve(__dirname, './src/index.ts'),
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: devMode ? 'pony.js' : 'pony.min.js',
-    library: 'pony',
+    filename: devMode ? 'coochi.js' : 'coochi.min.js',
+    library: 'coochi',
     libraryTarget: 'umd'
   },
   resolve: {
@@ -72,7 +72,7 @@ module.exports = ({
             }
           },
           {
-            loader: 'sass-loader' // 使用 sass-loader 将 scss 转为 css
+            loader: 'less-loader' // 使用 less-loader 将 less 转为 css
           }
         ]
       },
@@ -97,12 +97,12 @@ module.exports = ({
       contextRegExp: /moment/,
     }),
     // 主要用于对打包好的js文件的最开始处添加版权声明
-    new webpack.BannerPlugin(`pony ${pkg.version}`),
+    new webpack.BannerPlugin(`coochi ${pkg.version}`),
     // 将CSS提取到单独的文件中
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? 'pony.css' : 'pony.min.css',
+      filename: devMode ? 'coochi.css' : 'coochi.min.css',
       chunkFilename: '[id].css'
     })
     // devMode ? new webpack.HotModuleReplacementPlugin() : null

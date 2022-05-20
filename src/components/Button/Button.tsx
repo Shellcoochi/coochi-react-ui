@@ -52,23 +52,23 @@ export const Button = (props: IButtonProps) => {
 
   const className = classNames(
     {
-      "pony-button": true,
-      "pony-button-primary": primary,
-      "pony-button-secondary": secondary && !text,
-      "pony-button-outline": outline,
-      "pony-button-dashed": dashed,
-      "pony-button-link": link,
-      "pony-button-text": text && !secondary,
-      "pony-button-text-secondary": secondary && text,
-      "pony-button-xl": xLarge,
-      "pony-button-lg": large,
-      "pony-button-sm": small,
-      "pony-button-xs": xSmall,
-      "pony-button-xxs": xxSmall,
-      "pony-button-success": success,
-      "pony-button-warn": warn,
-      "pony-button-danger": danger,
-      "pony-button-disabled": disabled,
+      "coochi-button": true,
+      "coochi-button-primary": primary,
+      "coochi-button-secondary": secondary && !text,
+      "coochi-button-outline": outline,
+      "coochi-button-dashed": dashed,
+      "coochi-button-link": link,
+      "coochi-button-text": text && !secondary,
+      "coochi-button-text-secondary": secondary && text,
+      "coochi-button-xl": xLarge,
+      "coochi-button-lg": large,
+      "coochi-button-sm": small,
+      "coochi-button-xs": xSmall,
+      "coochi-button-xxs": xxSmall,
+      "coochi-button-success": success,
+      "coochi-button-warn": warn,
+      "coochi-button-danger": danger,
+      "coochi-button-disabled": disabled,
     },
     tempClassName
   );
@@ -81,7 +81,7 @@ export const Button = (props: IButtonProps) => {
       onClick={onClick}
       disabled={disabled}
     >
-      <span className="pony-button__content">{children}</span>
+      <span className="coochi-button__content">{children}</span>
     </button>
   );
 };

@@ -1,3 +1,3 @@
-import './styles/pony.scss';
+import './styles/coochi.less';
 
 export * from './components/Button';
