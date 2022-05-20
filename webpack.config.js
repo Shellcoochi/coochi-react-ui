@@ -45,7 +45,7 @@ module.exports = ({
         ]
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.(sa|sc|c|le)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader // 抽取样式文件，将css样式文件用link标签引入，使用此loader就不需要用style-loader，即使用了也不会有效果

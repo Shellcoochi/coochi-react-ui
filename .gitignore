@@ -6,6 +6,7 @@
 .pnp.js
 .docz
 build-docs
+lib
 
 # testing
 /coverage
