@@ -1,6 +1,6 @@
 {
   "name": "coochi-react-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "module": "lib/index.js",
@@ -23,7 +23,6 @@
     "dist/*",
     "docs/*",
     "lib",
-    "index.js",
     "package.json",
     "README.md"
   ],
