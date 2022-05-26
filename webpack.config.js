@@ -13,6 +13,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 const pkg = require('./package.json');
 
 module.exports = ({
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   mode: devMode ? 'development' : 'production',
   devtool: devMode ? 'inline-source-map' : 'hidden-source-map',
   entry: path.resolve(__dirname, './src/index.ts'),
